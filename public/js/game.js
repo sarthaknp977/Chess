@@ -68,6 +68,18 @@ const renderBoard = () => {
         }
     });
 
+    const highlightLegalMoves = (sourceSquare) => {
+        const legalMoves = chess.moves({ square: `${String.fromCharCode(97 + sourceSquare.column)}${8 - sourceSquare.row}`, verbose: true });
+        legalMoves.forEach(move => {
+            const targetRow = 8 - parseInt(move.to[1]);
+            const targetColumn = move.to.charCodeAt(0) - 97;
+            const targetSquareElement = document.querySelector(`.square[data-row='${targetRow}'][data-column='${targetColumn}']`);
+            if (targetSquareElement) {
+                targetSquareElement.classList.add("highlight");
+            }
+        });
+    };
+
 };
 
 const handleMove = (source, target) => {
