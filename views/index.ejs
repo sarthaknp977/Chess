@@ -35,11 +35,13 @@
         }
 
         .square.light {
-            background-color: #ffce9e;
+            background-color: #ebecd0;
+            position: relative;
         }
 
         .square.dark {
-            background-color: #d18b47;
+            background-color: #739552;
+            position: relative;
         }
 
 
@@ -51,8 +53,14 @@
             transform: rotate(180deg);
         }
 
-        .square.highlight {
-            background: linear-gradient(to bottom left, green, greenyellow, green);
+        .square.highlight::before {
+            content: "";
+            position: absolute;
+            height: 10px;
+            width: 10px;
+            background-color: green;
+            border-radius: 50%;
+
         }
     </style>
 </head>
